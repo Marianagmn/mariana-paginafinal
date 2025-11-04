@@ -1,0 +1,347 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+.navbar {
+  padding: 1.5rem 0;
+}
+.nav-link {
+  color: #003366 !important;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-link:hover, .nav-link.active {
+  color: #0077cc !important;
+}
+
+/* Enlaces largos en la navbar: centrar y permitir multi-línea sin romper el flujo */
+.nav-link.nav-long {
+  /* menos agresivo: permitir un ancho mayor y alinear a la izquierda
+     para no comprimir los elementos vecinos en la navbar */
+  /* Centrar el texto largo dentro del propio elemento y permitir varias líneas.
+     Usamos flexbox para que el nav-item mantenga su tamaño y no comprima los vecinos. */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  line-height: 1.15;
+  max-width: 15rem; /* dar más espacio al texto largo */
+  padding: 0 0.25rem;
+}
+
+/* Ajustes para el formulario de búsqueda en la navbar: input y botón responsivos sin desbordar */
+.navbar form[role="search"] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 360px; /* límite horizontal razonable */
+  width: 100%;
+}
+.navbar form[role="search"] .form-control {
+  flex: 1 1 auto; /* crecer, pero permitir reducción */
+  min-width: 0; /* necesario para que flex funcione en contenedores pequeños */
+}
+.navbar form[role="search"] .btn {
+  flex: 0 0 auto; /* mantener tamaño del botón */
+  white-space: nowrap; /* evitar que el texto del botón haga wrap */
+}
+
+@media (max-width: 767px) {
+  .navbar form[role="search"] {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 991px) {
+  /* en pantallas medianas reducir un poco el ancho de los enlaces largos */
+  .nav-link.nav-long { max-width: 12.5rem; }
+}
+
+/* Empujar el enlace de contacto más a la derecha en pantallas amplias para dar espacio a enlaces largos */
+/* Removed custom margin for .nav-contact to keep uniform spacing */
+
+/* Forzar que 'Compra segura y envíos' ocupe preferentemente dos líneas en pantallas amplias */
+.nav-link.nav-compra {
+  max-width: 10rem; /* provocar wrapping entre 'Compra segura' y 'y envíos' */
+  padding-left: 0.6rem; /* un poco más de espacio a la izquierda */
+  margin-left: 0.6rem; /* separar visualmente hacia la izquierda */
+}
+
+@media (min-width: 1200px) {
+  /* más espacio para nav-compra en pantallas muy amplias */
+  .nav-link.nav-compra { max-width: 11rem; }
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(135deg, rgba(208, 235, 255, 0.9), rgba(163, 213, 255, 0.9) 60%, rgba(255, 255, 255, 0.9) 100%), url('img/nosotros.jpg') no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover;
+  color: #003366;
+  padding: 140px 0;
+  text-shadow: 0 1px 3px rgba(255,255,255,0.5);
+}
+.hero h1 {
+  font-weight: 700;
+  font-size: 3.2rem;
+  letter-spacing: -0.5px;
+}
+.hero .lead {
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.hero .btn-outline-light {
+  border-color: #003366;
+  color: #003366;
+}
+.hero .btn-outline-light:hover {
+  background-color: #003366;
+  color: white;
+}
+
+/* PRODUCTOS */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+.product-card img {
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+.card-title {
+  font-weight: 600;
+}
+.card-text {
+  color: #555;
+  min-height: 60px;
+}
+
+/* TESTIMONIOS */
+#testimonios .carousel-item {
+  padding: 2rem;
+}
+#testimonios img {
+  border: 3px solid #0077cc;
+}
+
+/* Colocar las flechas del carrusel a los lados (fuera del vídeo) y centradas verticalmente */
+#testimoniosCarousel {
+  position: relative;
+  padding: 0 60px; /* espacio para los controles a los lados */
+}
+#testimoniosCarousel .carousel-control-prev,
+#testimoniosCarousel .carousel-control-next {
+  width: auto;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  opacity: 1;
+}
+#testimoniosCarousel .carousel-control-prev { left: 8px; }
+#testimoniosCarousel .carousel-control-next { right: 8px; }
+
+/* Asegurar que el icono dentro del control sea claramente visible y tenga tamaño adecuado */
+#testimoniosCarousel .carousel-control-prev-icon,
+#testimoniosCarousel .carousel-control-next-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Centrar y ajustar la sección de contacto */
+#contacto .col-md-6 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* NOSOTROS */
+#nosotros img {
+  transition: transform 0.4s ease;
+}
+#nosotros img:hover {
+  transform: scale(1.03);
+}
+
+/* FOOTER */
+footer {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+footer p.small {
+  opacity: 0.8;
+}
+
+/* BOTONES FLOTANTES */
+.whatsapp-float {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #25D366;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  font-size: 24px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  color: white;
+}
+
+#btnTop {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  display: none;
+  z-index: 999;
+}
+#btnTop.show {
+  display: block;
+}
+
+/* TÍTULOS */
+.section-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: .5rem;
+  animation: fadeInUp 1s ease-out;
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  width: 60%;
+  height: 3px;
+  left: 20%;
+  bottom: 0;
+  background-color: #0077cc;
+  border-radius: 2px;
+}
+
+/* ANIMACIONES */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RIPPLE EFFECT */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transition: width 0.6s, height 0.6s;
+  transform: translate(-50%, -50%);
+}
+.btn:active::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* HAMBURGER TRANSITION */
+.navbar-collapse {
+  transition: height 0.3s ease;
+}
+
+/* PRODUCT ZOOM */
+.product-card:hover {
+  transform: translateY(-5px) scale(1.05);
+}
+
+/* STARS */
+.stars {
+  font-size: 1.2rem;
+}
+
+/* SCROLL PROGRESS BAR */
+#progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background-color: #0077cc;
+  z-index: 9999;
+}
+
+/* BANNER DE COOKIES */
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: linear-gradient(90deg,#0077cc,#005fa3);
+  color: white;
+  border-radius: 8px;
+  z-index: 99999;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+.cookie-banner a { color: #fff; text-decoration: underline; }
+
+/* MODAL DE BÚSQUEDA (estilos básicos para coincidencia visual) */
+#searchModal > div {
+  max-height: calc(100vh - 80px);
+  overflow: auto;
+}
+.product-card { margin-bottom: 0; }
+.product-card .card-body { min-height: 220px; }
+
+/* LOADER */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#loader img {
+  width: 100px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+  .product-card img {
+    height: 200px;
+  }
+}

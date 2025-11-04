@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de Privacidad - 4Life Distribuidor Independiente</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.7;
+      color: #1a1a2e;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      animation: fadeIn 0.6s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    h1 {
+      font-size: 2.5em;
+      font-weight: 700;
+      margin-bottom: 15px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .header p {
+      font-size: 1.1em;
+      opacity: 0.95;
+      font-weight: 300;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .content {
+      padding: 50px 40px;
+    }
+    
+    .intro {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 30px;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      border-left: 5px solid #667eea;
+    }
+    
+    .intro p {
+      font-size: 1.05em;
+      color: #2c3e50;
+    }
+    
+    h2 {
+      font-size: 1.8em;
+      color: #667eea;
+      margin: 40px 0 20px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    h2::before {
+      content: '';
+      width: 6px;
+      height: 32px;
+      background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+      border-radius: 3px;
+    }
+    
+    h3 {
+      font-size: 1.4em;
+      color: #764ba2;
+      margin: 30px 0 15px;
+      font-weight: 600;
+    }
+    
+    p {
+      margin-bottom: 16px;
+      color: #4a5568;
+      font-size: 1.02em;
+    }
+    
+    ul {
+      margin: 20px 0 20px 20px;
+      list-style: none;
+    }
+    
+    ul li {
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+      color: #4a5568;
+      line-height: 1.8;
+    }
+    
+    ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #667eea;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    
+    ul ul {
+      margin-top: 10px;
+    }
+    
+    ul ul li::before {
+      content: '•';
+      font-size: 1.5em;
+      top: -3px;
+    }
+    
+    strong {
+      color: #2d3748;
+      font-weight: 600;
+    }
+    
+    a {
+      color: #667eea;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid transparent;
+    }
+    
+    a:hover {
+      color: #764ba2;
+      border-bottom-color: #764ba2;
+    }
+    
+    code {
+      background: #f7fafc;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      color: #e53e3e;
+      font-size: 0.9em;
+      border: 1px solid #e2e8f0;
+    }
+    
+    pre {
+      background: #2d3748;
+      color: #a0aec0;
+      padding: 20px;
+      border-radius: 12px;
+      overflow-x: auto;
+      margin: 20px 0;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    pre code {
+      background: none;
+      border: none;
+      color: #68d391;
+      padding: 0;
+      font-size: 0.95em;
+    }
+    
+    ol {
+      margin: 20px 0 20px 40px;
+      color: #4a5568;
+    }
+    
+    ol li {
+      margin-bottom: 12px;
+      line-height: 1.8;
+    }
+    
+    .back-link {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      border-bottom: none;
+    }
+    
+    .back-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+      color: white;
+    }
+    
+    .section {
+      margin-bottom: 50px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    
+    .section:last-of-type {
+      border-bottom: none;
+    }
+    
+    .highlight-box {
+      background: #fff5f5;
+      border-left: 4px solid #fc8181;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    .info-box {
+      background: #ebf8ff;
+      border-left: 4px solid #4299e1;
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+      
+      .header {
+        padding: 40px 20px;
+      }
+      
+      h1 {
+        font-size: 1.8em;
+      }
+      
+      .content {
+        padding: 30px 20px;
+      }
+      
+      h2 {
+        font-size: 1.4em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Política de Privacidad</h1>
+      <p>Última actualización: Octubre 2025</p>
+    </div>
+    
+    <div class="content">
+      <div class="intro">
+        <p>En calidad de distribuidor independiente autorizado de 4Life Research™ (en adelante, “el Sitio” o “nosotros”), respetamos y protegemos la privacidad de nuestros visitantes y usuarios. 
+        Esta Política de Privacidad explica cómo recopilamos, utilizamos, almacenamos y protegemos tus datos personales conforme a la legislación vigente sobre protección de datos personales, incluida la Ley 1581 de 2012 y el Decreto 1377 de 2013 (Colombia). 
+        Al utilizar este Sitio, aceptas esta Política. Si eres menor de edad, te recordamos que debes contar con la autorización de tus padres o representantes legales antes de proporcionar información personal.</p>
+      </div>
+
+      <div class="section">
+        <h2>Responsable del tratamiento</h2>
+        <p>El responsable del tratamiento de los datos personales recogidos a través de este Sitio es el distribuidor independiente identificado a continuación:</p>
+        <ul>
+          <li>Nombre / Razón social: <strong>Hector Meneses</strong></li>
+          <li>Correo de contacto: <strong><a href="mailto:marianagm1123@gmail.com">marianagm1123@gmail.com</a></strong></li>
+          <li>Ubicación: <strong>Bogotá, Colombia</strong></li>
+          <li>Condición: <strong>Distribuidor Independiente Autorizado de 4Life Research™</strong></li>
+        </ul>
+        <p>Este Sitio no es propiedad ni está gestionado directamente por 4Life Research™. Toda la comunicación o tratamiento de datos personales se realiza bajo la responsabilidad exclusiva del distribuidor arriba identificado.</p>
+      </div>
+
+      <div class="section">
+        <h2>1. Datos que recopilamos</h2>
+        <p>Podemos recopilar y tratar los siguientes tipos de datos personales, según la interacción del usuario con el Sitio:</p>
+        <ul>
+          <li><strong>Datos de contacto:</strong> nombre, correo electrónico, número de teléfono y mensaje, cuando utilizas el formulario de contacto.</li>
+          <li><strong>Datos técnicos y de navegación:</strong> dirección IP (anonimizada cuando sea posible), tipo de navegador, sistema operativo, páginas visitadas y tiempo de permanencia, con fines estadísticos y de seguridad.</li>
+          <li><strong>Cookies y tecnologías similares:</strong> se utilizan para recordar preferencias del usuario, gestionar el consentimiento y mejorar la experiencia de navegación.</li>
+          <li><strong>Datos derivados de interacciones con servicios de terceros:</strong> como la reproducción de vídeos de YouTube u otros medios embebidos, siempre que hayas otorgado tu consentimiento previo.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>2. Finalidades y base legal</h2>
+        <p>Los datos recopilados serán tratados con las siguientes finalidades y bases jurídicas:</p>
+        <ul>
+          <li>Atender consultas o solicitudes enviadas a través de formularios de contacto (base legal: ejecución de medidas precontractuales o consentimiento).</li>
+          <li>Garantizar el funcionamiento, mejora y seguridad del Sitio (base legal: interés legítimo del responsable).</li>
+          <li>Cargar contenidos o servicios externos, como vídeos o formularios, únicamente con tu consentimiento expreso (base legal: consentimiento).</li>
+          <li>Cumplir con obligaciones legales o contractuales aplicables (base legal: cumplimiento normativo).</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>3. Cookies y tecnologías similares</h2>
+        <p>El Sitio utiliza cookies para distintos propósitos, que clasificamos de la siguiente forma:</p>
+        <ul>
+          <li><strong>Necesarias:</strong> imprescindibles para el funcionamiento básico del Sitio. No requieren consentimiento previo.</li>
+          <li><strong>Preferencias:</strong> almacenan configuraciones seleccionadas por el usuario (por ejemplo, idioma o diseño).</li>
+          <li><strong>Analíticas:</strong> permiten medir y analizar el uso del Sitio para mejorar su rendimiento (sólo activas con consentimiento).</li>
+          <li><strong>Marketing:</strong> orientadas a la personalización publicitaria (no se utilizan por defecto en este Sitio).</li>
+          <li><strong>Medios:</strong> habilitan la reproducción de contenidos externos (por ejemplo, YouTube). El iframe del vídeo sólo se carga cuando aceptas la categoría correspondiente o haces clic para reproducir.</li>
+        </ul>
+        <div class="info-box">
+          <p>Puedes modificar tus preferencias de cookies desde el banner de consentimiento o a través de la configuración del navegador. 
+          Deshabilitar ciertas cookies podría limitar algunas funcionalidades del Sitio.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>4. Destinatarios y encargados del tratamiento</h2>
+        <p>Tus datos podrán ser tratados por proveedores que prestan servicios técnicos o de soporte al Sitio, tales como:</p>
+        <ul>
+          <li><strong>Servicios de formulario:</strong> formsubmit.co (procesamiento y envío de formularios de contacto).</li>
+          <li><strong>Plataformas multimedia:</strong> YouTube (Google LLC), cuando reproduces contenido audiovisual.</li>
+          <li><strong>Redes de distribución de contenido (CDN):</strong> para cargar librerías externas (Bootstrap, Font Awesome, Google Fonts, jsDelivr).</li>
+        </ul>
+        <p>Si se integran servicios adicionales, como herramientas de analítica o publicidad, se solicitará tu consentimiento previo antes de activarlos.</p>
+      </div>
+
+      <div class="section">
+        <h2>5. Transferencias internacionales</h2>
+        <p>El uso de servicios de terceros puede implicar la transferencia internacional de datos a países con niveles de protección distintos al colombiano. 
+        Estas transferencias se realizarán únicamente cuando existan garantías adecuadas, como cláusulas contractuales tipo o consentimiento expreso del usuario.</p>
+      </div>
+
+      <div class="section">
+        <h2>6. Plazos de conservación</h2>
+        <p>Los datos personales serán conservados por el tiempo necesario para cumplir las finalidades para las que fueron recogidos y conforme a la normativa vigente:</p>
+        <ul>
+          <li>Consultas y formularios de contacto: hasta por <strong>3 años</strong> o hasta que el usuario solicite su supresión.</li>
+          <li>Registros técnicos y de seguridad (logs): hasta por <strong>24 meses</strong>.</li>
+          <li>Cookies analíticas (si se activan): hasta por <strong>24 meses</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>7. Derechos del titular de los datos</h2>
+        <p>De acuerdo con la Ley 1581 de 2012, tienes derecho a:</p>
+        <ul>
+          <li>Acceder a tus datos personales.</li>
+          <li>Solicitar su rectificación o actualización.</li>
+          <li>Solicitar la eliminación o supresión cuando corresponda.</li>
+          <li>Oponerte o limitar su tratamiento.</li>
+          <li>Solicitar la portabilidad de los datos.</li>
+        </ul>
+        <p>Para ejercer tus derechos, puedes escribir a: 
+          <strong><a href="mailto:4lifeventas8@gmail.com">4lifeventas8@gmail.com</a></strong>. 
+          Atenderemos tu solicitud en un plazo máximo de <strong>15 días hábiles</strong>.</p>
+      </div>
+
+      <div class="section">
+        <h2>8. Seguridad de la información</h2>
+        <p>Aplicamos medidas técnicas, administrativas y organizativas razonables para proteger tus datos contra pérdida, acceso no autorizado o divulgación. 
+        Sin embargo, ningún sistema es completamente seguro; por ello, te recomendamos no enviar información extremadamente sensible a través de los formularios del Sitio.</p>
+      </div>
+
+      <div class="section">
+        <h2>9. Reclamaciones</h2>
+        <p>Si consideras que el tratamiento de tus datos personales vulnera las disposiciones legales, puedes presentar una reclamación ante la autoridad de control competente en Colombia:</p>
+        <p><strong>Superintendencia de Industria y Comercio (SIC)</strong><br>
+        Sitio web: <a href="https://www.sic.gov.co" target="_blank">https://www.sic.gov.co</a></p>
+      </div>
+
+      <div class="section">
+        <h2>10. Cambios en la Política de Privacidad</h2>
+        <p>Podremos actualizar esta Política de Privacidad en cualquier momento. Las modificaciones se publicarán con la fecha de la última actualización. 
+        En caso de cambios sustanciales, se notificará mediante un aviso visible en el Sitio.</p>
+      </div>
+
+      <div class="section">
+        <h2>11. Contacto</h2>
+        <p>Si tienes preguntas, comentarios o solicitudes relacionadas con esta Política de Privacidad, puedes comunicarte a: 
+          <strong><a href="mailto:4lifeventas8@gmail.com">4lifeventas8@gmail.com</a></strong>.</p>
+      </div>
+
+      <div class="section">
+        <h2>12. Lista de cookies utilizadas (resumen)</h2>
+        <p>A continuación se describe de forma orientativa las cookies y tecnologías que pueden utilizarse en este Sitio. 
+        Recuerda que los servicios de terceros (como YouTube o herramientas de formularios) pueden aplicar sus propias políticas:</p>
+
+        <ul>
+          <li><strong>Cookies propias / localStorage</strong>
+            <ul>
+              <li><em>Finalidad:</em> guardar tus preferencias y consentimiento de cookies.</li>
+              <li><em>Ejemplos:</em> <code>cookies_accepted</code>, <code>cookies_media</code>, <code>cookies_analytics</code>, <code>cookies_marketing</code>, <code>cookies_preferences</code>.</li>
+              <li><em>Duración:</em> persistentes hasta que las borres o sean actualizadas.</li>
+            </ul>
+          </li>
+
+          <li><strong>Formularios (formsubmit.co)</strong>
+            <ul>
+              <li><em>Finalidad:</em> envío de mensajes del formulario de contacto.</li>
+              <li><em>Duración:</em> temporal, de sesión.</li>
+              <li><em>Política de privacidad:</em> <a href="https://formsubmit.co/privacy" target="_blank">https://formsubmit.co/privacy</a></li>
+            </ul>
+          </li>
+
+          <li><strong>Vídeos embebidos (YouTube / Google)</strong>
+            <ul>
+              <li><em>Finalidad:</em> reproducir vídeos alojados en YouTube.</li>
+              <li><em>Cookies posibles:</em> <code>YSC</code>, <code>PREF</code>, <code>VISITOR_INFO1_LIVE</code>.</li>
+              <li><em>Duración:</em> de sesión o persistentes según el servicio.</li>
+              <li><em>Política de Google:</em> <a href="https://policies.google.com/technologies/cookies" target="_blank">https://policies.google.com/technologies/cookies</a></li>
+            </ul>
+          </li>
+
+          <li><strong>CDNs y librerías externas</strong>
+            <ul>
+              <li><em>Finalidad:</em> cargar librerías (Bootstrap, Font Awesome, Google Fonts).</li>
+              <li><em>Cookies:</em> generalmente no establecen cookies propias.</li>
+            </ul>
+          </li>
+
+          <li><strong>Analítica (Google Analytics) — No habilitado por defecto</strong>
+            <ul>
+              <li><em>Finalidad:</em> analizar el uso del Sitio.</li>
+              <li><em>Cookies:</em> <code>_ga</code>, <code>_gid</code>, <code>_gat</code>.</li>
+              <li><em>Activación:</em> sólo si el responsable añade el ID de medición y el usuario da su consentimiento.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Gestión del consentimiento</h3>
+        <p>Puedes retirar tu consentimiento en cualquier momento desde el banner de cookies o eliminando los datos almacenados en tu navegador:</p>
+        <pre><code>localStorage.removeItem('cookies_analytics');
+localStorage.removeItem('cookies_media');
+localStorage.removeItem('cookies_marketing');
+localStorage.removeItem('cookies_preferences');
+localStorage.removeItem('cookies_accepted');</code></pre>
+        <p>Tras hacerlo, recarga la página para restablecer tus preferencias.</p>
+      </div>
+
+      <a href="index.html" class="back-link">Volver al inicio</a>
+    </div>
+  </div>
+</body>
+
+</html>
