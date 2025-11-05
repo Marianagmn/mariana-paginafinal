@@ -89,13 +89,13 @@ if ('IntersectionObserver' in window) {
 // (Las variables ya están declaradas más abajo para la búsqueda avanzada)
 
 // --- BÚSQUEDA AVANZADA CON MODAL Y FILTRO POR CATEGORÍA ---
-const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 const productCards = document.querySelectorAll('.product-card');
 const productosSection = document.getElementById('productos');
 
 // Crear modal dinámico para resultados
 let modal = document.getElementById('searchModal');
+let searchInput; // Se inicializará cuando se cree el modal
 if (!modal) {
   modal = document.createElement('div');
   modal.id = 'searchModal';
@@ -111,10 +111,17 @@ if (!modal) {
     <div style="max-width:1100px;margin:40px auto;background:#fff;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.2);padding:2rem;position:relative;">
       <button id="closeSearchModal" style="position:absolute;top:18px;right:18px;font-size:1.7rem;background:none;border:none;color:#0077cc;cursor:pointer;" aria-label="Cerrar">&times;</button>
       <h2 class="text-center mb-4 section-title">Resultados de búsqueda</h2>
-      <div class="mb-3 text-center">
-        <select id="categoryFilter" class="form-select" style="max-width:300px;display:inline-block;">
-          <option value="">Todas las categorías</option>
-        </select>
+      <div class="mb-4">
+        <div class="row g-3 justify-content-center align-items-end">
+          <div class="col-md-6">
+            <input type="search" id="searchInput" class="form-control" placeholder="Buscar productos..." aria-label="Buscar productos">
+          </div>
+          <div class="col-md-4">
+            <select id="categoryFilter" class="form-select">
+              <option value="">Todas las categorías</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div id="modalResultsGrid" class="row g-4"></div>
       <div class="text-center mt-4">
@@ -221,30 +228,47 @@ function filterProductsAdvanced() {
   productosSection.style.display = 'none';
 }
 
-if (searchInput) {
-  searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      filterProductsAdvanced();
+// Función para inicializar los event listeners del buscador
+function initializeSearchListeners() {
+  searchInput = document.getElementById('searchInput');
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        filterProductsAdvanced();
+      }
+    });
+
+    // Debounce helper (local, small and safe)
+    function debounce(fn, wait = 300) {
+      let t;
+      return function (...args) {
+        clearTimeout(t);
+        t = setTimeout(() => fn.apply(this, args), wait);
+      };
+    }
+
+    // Live search (debounced) - only trigger search when term >= 2 chars
+    const debouncedFilter = debounce(() => {
+      if (searchInput.value.trim().length >= 2) filterProductsAdvanced();
+    }, 300);
+    searchInput.addEventListener('input', debouncedFilter);
+  }
+}
+
+// Cuando el usuario hace clic en el botón de búsqueda, mostrar el modal
+if (searchBtn) {
+  searchBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
+    productosSection.style.display = 'none';
+    // Inicializar listeners si no se ha hecho
+    if (!searchInput) {
+      initializeSearchListeners();
+    }
+    // Enfocar el input de búsqueda
+    if (searchInput) {
+      searchInput.focus();
     }
   });
-
-  // Debounce helper (local, small and safe)
-  function debounce(fn, wait = 300) {
-    let t;
-    return function (...args) {
-      clearTimeout(t);
-      t = setTimeout(() => fn.apply(this, args), wait);
-    };
-  }
-
-  // Live search (debounced) - only trigger modal when term >= 2 chars
-  const debouncedFilter = debounce(() => {
-    if (searchInput.value.trim().length >= 2) filterProductsAdvanced();
-  }, 300);
-  searchInput.addEventListener('input', debouncedFilter);
-}
-if (searchBtn) {
-  searchBtn.addEventListener('click', filterProductsAdvanced);
 }
 
 categoryFilter.addEventListener('change', filterProductsAdvanced);
