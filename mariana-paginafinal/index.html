@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>4Life - Suplementos para tu Bienestar | Distribuidor Independiente</title>
 
   <!-- SEO -->
@@ -10,8 +10,9 @@
   <meta name="keywords" content="4Life, Transfer Factor, suplementos naturales, salud, bienestar, inmunidad, antioxidantes, Colombia, distribuidor independiente">
   <meta name="author" content="Distribuidor Independiente 4Life">
   <meta name="robots" content="index, follow">
+  
+  <!-- Favicons -->
   <link rel="icon" href="img/4life-logo.png" type="image/png">
-  <!-- Modern favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="img/4life-logo.png">
   <link rel="apple-touch-icon" sizes="180x180" href="img/4life-logo.png">
   <meta name="theme-color" content="#0077cc">
@@ -25,106 +26,121 @@
   <meta property="og:locale" content="es_CO">
 
   <!-- Estilos -->
-  <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="css/styles.css"></noscript>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="70">
 
 <!-- Loader -->
 <div id="loader">
-  <img src="img/4life-logo.png" alt="Cargando...">
+  <img src="img/4life-logo.png" alt="Cargando..." width="100" height="100">
 </div>
 
 <!-- Barra de progreso -->
 <div id="progressBar"></div>
 
+<!-- Navegación -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="#inicio">
-      <img src="img/4life-logo.png" alt="4Life" height="30" class="me-2">
-      Servicio con Amor
+    <a class="navbar-brand d-flex align-items-center fw-bold" href="#inicio">
+      <img src="img/4life-logo.png" alt="4Life Logo" height="30" class="me-2">
+      <span>Servicio con Amor</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Abrir menú">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <form class="d-flex me-3" role="search">
+      <!-- Buscador -->
+      <form class="d-flex my-3 my-lg-0 ms-lg-3 me-lg-3" role="search">
         <input class="form-control me-2" type="search" id="searchInput" placeholder="Buscar productos..." aria-label="Buscar productos">
-        <button class="btn btn-outline-primary" type="button" id="searchBtn">Buscar</button>
+        <button class="btn btn-outline-primary" type="button" id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass d-lg-none"></i>
+          <span class="d-none d-lg-inline">Buscar</span>
+        </button>
       </form>
+      <!-- Menú -->
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
         <li class="nav-item"><a class="nav-link" href="#productos">Productos</a></li>
         <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
-  <li class="nav-item"><a class="nav-link nav-long" href="#nosotros">¿Quiénes somos?</a></li>
-  <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
-  <li class="nav-item"><a class="nav-link nav-long nav-compra" href="#compra-segura">Compra segura</a></li>
-  <!-- Blog eliminado del menú -->
-  <li class="nav-item nav-contact"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="#nosotros">¿Quiénes somos?</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#compra-segura">Compra segura</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!-- Banner de cookies (se muestra hasta aceptación) -->
-<div id="cookieBanner" class="cookie-banner text-center" role="dialog" aria-live="polite">
-  <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between py-3">
-    <div class="me-3 text-start">
-      <strong>Usamos cookies</strong>
-      <p class="mb-0">Este sitio utiliza cookies y tecnologías similares para mejorar la experiencia, analizar el tráfico y mostrar contenido personalizado. Puedes leer más en nuestra <a href="privacy.html">Política de Privacidad</a>.</p>
-    </div>
-    <div class="mt-2 mt-md-0">
-      <button id="acceptCookies" class="btn btn-primary me-2">Aceptar todo</button>
-      <button id="openCookieSettings" class="btn btn-outline-light">Configuración</button>
+<!-- Banner de cookies -->
+<div id="cookieBanner" class="cookie-banner" role="dialog" aria-live="polite">
+  <div class="container">
+    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between py-3 gap-3">
+      <div class="text-center text-md-start">
+        <strong>Usamos cookies</strong>
+        <p class="mb-0 small">Este sitio utiliza cookies para mejorar tu experiencia. Puedes leer más en nuestra <a href="privacy.html" class="text-white text-decoration-underline">Política de Privacidad</a>.</p>
+      </div>
+      <div class="d-flex gap-2">
+        <button id="acceptCookies" class="btn btn-light btn-sm">Aceptar todo</button>
+        <button id="openCookieSettings" class="btn btn-outline-light btn-sm">Configuración</button>
+      </div>
     </div>
   </div>
 </div>
 
-<section id="inicio" class="hero d-flex align-items-center text-center">
+<!-- Hero Section -->
+<section id="inicio" class="hero d-flex align-items-center">
   <div class="container">
-  <h1 class="animate__animated animate__fadeInDown">Activa tu día y apoya tu bienestar</h1>
-  <p class="lead animate__animated animate__fadeInUp">Descubre los productos 4Life y apoya tu bienestar con formulaciones de calidad.</p>
-    <a href="https://colombia.4life.com/12757711/shop/all" target="_blank" class="btn btn-primary btn-lg me-3 animate__animated animate__fadeInLeft" aria-label="Comprar ahora">
-      <i class="fa-solid fa-cart-shopping"></i> Comprar ahora
-    </a>
-    <a href="https://wa.me/573208501537?text=Hola!!%20Quiero%20informaci%C3%B3n%20de%20productos%204Life" target="_blank" class="btn btn-outline-light btn-lg animate__animated animate__fadeInRight" aria-label="Escríbenos por WhatsApp">
-      <i class="fa-brands fa-whatsapp"></i> Escríbenos
-    </a>
-    <div class="mt-3 animate__animated animate__fadeInUp">
-      <p class="mb-2 visually-hidden">Síguenos en redes</p>
-      <!-- Solo logos: actualiza los href con las cuentas reales -->
-      <a href="https://www.instagram.com/servicio_con_amor_s?igsh=MW1pZGZtcm51YjBkNA==" target="_blank" class="text-dark me-3" aria-label="Instagram">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" fill="#E4405F"/>
-        </svg>
-      </a>
-      <a href="https://www.tiktok.com/@servicio_con_amor_s?is_from_webapp=1&sender_device=pc" target="_blank" class="text-dark" aria-label="TikTok">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="#FF0050"/>
-        </svg>
-      </a>
+    <div class="row justify-content-center">
+      <div class="col-lg-10 text-center">
+        <h1 class="display-4 fw-bold mb-4 animate__animated animate__fadeInDown">
+          Activa tu día y apoya tu bienestar
+        </h1>
+        <p class="lead mb-4 animate__animated animate__fadeInUp">
+          Descubre los productos 4Life y apoya tu bienestar con formulaciones de calidad.
+        </p>
+        <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center mb-4">
+          <a href="https://colombia.4life.com/12757711/shop/all" target="_blank" class="btn btn-primary btn-lg animate__animated animate__fadeInLeft" aria-label="Comprar ahora">
+            <i class="fa-solid fa-cart-shopping me-2"></i>Comprar ahora
+          </a>
+          <a href="https://wa.me/573208501537?text=Hola!!%20Quiero%20información%20de%20productos%204Life" target="_blank" class="btn btn-outline-light btn-lg animate__animated animate__fadeInRight" aria-label="Escríbenos por WhatsApp">
+            <i class="fa-brands fa-whatsapp me-2"></i>Escríbenos
+          </a>
+        </div>
+        <div class="social-links animate__animated animate__fadeInUp">
+          <a href="https://www.instagram.com/servicio_con_amor_s?igsh=MW1pZGZtcm51YjBkNA==" target="_blank" aria-label="Instagram" class="me-3">
+            <i class="fa-brands fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://www.tiktok.com/@servicio_con_amor_s?is_from_webapp=1&sender_device=pc" target="_blank" aria-label="TikTok">
+            <i class="fa-brands fa-tiktok fa-2x"></i>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="productos" class="py-5">
+<!-- Productos Section -->
+<section id="productos" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-5 section-title">Productos 4Life</h2>
-    <div class="alert alert-info text-center" role="alert">
+    <h2 class="text-center mb-4 section-title">Productos 4Life</h2>
+    <div class="alert alert-info text-center mb-5" role="alert">
+      <i class="fa-solid fa-info-circle me-2"></i>
       ¡Bienvenido a nuestra selección de productos! Haz clic en 'Comprar' para acceder a la tienda oficial de 4Life y disfrutar de descuentos exclusivos con total confianza.
     </div>
     <div class="row g-4">
 
-      <!-- 1 -->
-      <div class="col-md-4">
+      <!-- Producto 1 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/transfer-factor-plus.jpg" class="card-img-top" alt="Transfer Factor Plus">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/transfer-factor-plus.jpg" class="card-img-top" alt="Transfer Factor Plus" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -133,19 +149,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Transfer Factor Plus</h5>
-            <p class="card-text">Suplemento con Tri-Factor®, zinc, aloe vera, maitake y shiitake, ideal para promover el bienestar general.</p>
-            <p class="fw-bold text-primary">$217.600 <small class="text-muted"><del>$272.000</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-plus-tri-factor/89" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Suplemento con Tri-Factor®, zinc, aloe vera, maitake y shiitake, ideal para promover el bienestar general.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $217.600 
+                <small class="text-muted text-decoration-line-through ms-2">$272.000</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-plus-tri-factor/89" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 2 -->
-      <div class="col-md-4">
+      <!-- Producto 2 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/rio-vida-stix.jpg" class="card-img-top" alt="RioVida Stix">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/rio-vida-stix.jpg" class="card-img-top" alt="RioVida Stix" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -154,19 +179,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">RioVida Stix</h5>
-            <p class="card-text">Bebida en polvo con Tri-Factor® y frutas naturales como açaí, mora y granada para energía y defensa antioxidante.</p>
-            <p class="fw-bold text-primary">$113.900 <small class="text-muted"><del>$142.400</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-riovida-stix/102" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Bebida en polvo con Tri-Factor® y frutas naturales como açaí, mora y granada para energía y defensa antioxidante.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $113.900 
+                <small class="text-muted text-decoration-line-through ms-2">$142.400</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-riovida-stix/102" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 3 -->
-      <div class="col-md-4">
+      <!-- Producto 3 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/4life-chewable.jpg" class="card-img-top" alt="4Life Chewable">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/4life-chewable.jpg" class="card-img-top" alt="4Life Chewable" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -175,19 +209,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Chewable</h5>
-            <p class="card-text">Tabletas masticables sabor naranja con la exclusiva fórmula Tri-Factor®, ideales para fortalecer defensas.</p>
-            <p class="fw-bold text-primary">$183.600 <small class="text-muted"><del>$229.500</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-chewable/78" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Tabletas masticables sabor naranja con la exclusiva fórmula Tri-Factor®, ideales para fortalecer defensas.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $183.600 
+                <small class="text-muted text-decoration-line-through ms-2">$229.500</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-chewable/78" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 4 -->
-      <div class="col-md-4">
+      <!-- Producto 4 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/rio-vida-burst.jpg" class="card-img-top" alt="RioVida Burst">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/rio-vida-burst.jpg" class="card-img-top" alt="RioVida Burst" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -196,19 +239,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">RioVida Burst</h5>
-            <p class="card-text">Gel nutritivo con frutas como açaí, granada, uva y Tri-Factor®, en sobres para consumo práctico y saludable.</p>
-            <p class="fw-bold text-primary">$141.600 <small class="text-muted"><del>$177.000</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-riovida-burst/94" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Gel nutritivo con frutas como açaí, granada, uva y Tri-Factor®, en sobres para consumo práctico y saludable.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $141.600 
+                <small class="text-muted text-decoration-line-through ms-2">$177.000</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-riovida-burst/94" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 5 -->
-      <div class="col-md-4">
+      <!-- Producto 5 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/collagen.jpg" class="card-img-top" alt="4Life Collagen">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/collagen.jpg" class="card-img-top" alt="4Life Collagen" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -217,19 +269,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">4Life Collagen</h5>
-            <p class="card-text">Colágeno con Transfer Factor®, vitaminas A, C, E y biotina. Bebida en polvo sabor mango y fresa.</p>
-            <p class="fw-bold text-primary">$155.200 <small class="text-muted"><del>$194.000</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/4life-transfer-factor-collagen/3480" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Colágeno con Transfer Factor®, vitaminas A, C, E y biotina. Bebida en polvo sabor mango y fresa.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $155.200 
+                <small class="text-muted text-decoration-line-through ms-2">$194.000</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/4life-transfer-factor-collagen/3480" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 6 -->
-      <div class="col-md-4">
+      <!-- Producto 6 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/tf-boost.jpg" class="card-img-top" alt="TF-Boost">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/tf-boost.jpg" class="card-img-top" alt="TF-Boost" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -238,19 +299,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">TF-Boost</h5>
-            <p class="card-text">Bebida en polvo con 1.000 mg de vitamina C, D, B2, calcio, magnesio y zinc. Sabor a naranja.</p>
-            <p class="fw-bold text-primary">$85.100 <small class="text-muted"><del>$106.400</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/4life-tf-boost/3550" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Bebida en polvo con 1.000 mg de vitamina C, D, B2, calcio, magnesio y zinc. Sabor a naranja.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $85.100 
+                <small class="text-muted text-decoration-line-through ms-2">$106.400</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/4life-tf-boost/3550" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 7 -->
-      <div class="col-md-4">
+      <!-- Producto 7 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/bellevie.jpg" class="card-img-top" alt="BelleVie">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/bellevie.jpg" class="card-img-top" alt="BelleVie" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -259,19 +329,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">BelleVie</h5>
-            <p class="card-text">Contiene 4Life Transfer Factor y extractos vegetales que aportan nutrientes naturales y promueven el bienestar integral del organismo.</p>
-            <p class="fw-bold text-primary">$182.600 <small class="text-muted"><del>$228.200</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-belle-vie/75" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Contiene 4Life Transfer Factor y extractos vegetales que aportan nutrientes naturales y promueven el bienestar integral del organismo.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $182.600 
+                <small class="text-muted text-decoration-line-through ms-2">$228.200</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-belle-vie/75" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 8 -->
-      <div class="col-md-4">
+      <!-- Producto 8 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/vistari.jpg" class="card-img-top" alt="Vistari">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/vistari.jpg" class="card-img-top" alt="Vistari" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -280,19 +359,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Vistari</h5>
-            <p class="card-text">Contiene vitaminas, carotenoides, bioflavonoides y zinc, en una mezcla pensada para complementar la dieta.</p>
-            <p class="fw-bold text-primary">$176.000 <small class="text-muted"><del>$220.100</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/4life-vistari/543" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Contiene vitaminas, carotenoides, bioflavonoides y zinc, en una mezcla pensada para complementar la dieta.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $176.000 
+                <small class="text-muted text-decoration-line-through ms-2">$220.100</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/4life-vistari/543" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 9 -->
-      <div class="col-md-4">
+      <!-- Producto 9 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/glucoach.jpg" class="card-img-top" alt="Glucoach">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/glucoach.jpg" class="card-img-top" alt="Glucoach" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -301,19 +389,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Glucoach</h5>
-            <p class="card-text">Elaborado con vitaminas, minerales y extractos vegetales seleccionados para integrar en la rutina nutricional.</p>
-            <p class="fw-bold text-primary">$215.100 <small class="text-muted"><del>$268.900</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/glucoach/1091" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Elaborado con vitaminas, minerales y extractos vegetales seleccionados para integrar en la rutina nutricional.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $215.100 
+                <small class="text-muted text-decoration-line-through ms-2">$268.900</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/glucoach/1091" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 10 -->
-      <div class="col-md-4">
+      <!-- Producto 10 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/reflexion.jpg" class="card-img-top" alt="Reflexion">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/reflexion.jpg" class="card-img-top" alt="Reflexion" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -322,19 +419,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Reflexion</h5>
-            <p class="card-text">Mezcla con Tri-Factor®, L-Teanina y avena verde que apoya la relajación y el bienestar mental.</p>
-            <p class="fw-bold text-primary">$187.400 <small class="text-muted"><del>$234.300</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/4life-transfer-factor-reflexion-colombia/1161" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Mezcla con Tri-Factor®, L-Teanina y avena verde que apoya la relajación y el bienestar mental.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $187.400 
+                <small class="text-muted text-decoration-line-through ms-2">$234.300</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/4life-transfer-factor-reflexion-colombia/1161" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 11 -->
-      <div class="col-md-4">
+      <!-- Producto 11 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/bioefa.jpg" class="card-img-top" alt="BioEFA">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/bioefa.jpg" class="card-img-top" alt="BioEFA" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -343,19 +449,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">BioEFA</h5>
-            <p class="card-text">Fórmula con aceites naturales y ácidos grasos esenciales provenientes de fuentes como pescado, linaza y cártamo.</p>
-            <p class="fw-bold text-primary">$92.700 <small class="text-muted"><del>$115.900</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/bioefa-with-cla/3" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Fórmula con aceites naturales y ácidos grasos esenciales provenientes de fuentes como pescado, linaza y cártamo.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $92.700 
+                <small class="text-muted text-decoration-line-through ms-2">$115.900</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/bioefa-with-cla/3" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 12 -->
-      <div class="col-md-4">
+      <!-- Producto 12 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/glutamine-prime.jpg" class="card-img-top" alt="Glutamine Prime">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/glutamine-prime.jpg" class="card-img-top" alt="Glutamine Prime" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -364,19 +479,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Glutamine Prime</h5>
-            <p class="card-text">Incluye L-Glutamina, L-Arginina y NanoFactor®, con una combinación de aminoácidos para uso nutricional diario.</p>
-            <p class="fw-bold text-primary">$127.100 <small class="text-muted"><del>$158.900</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/glutamine-prime---colombia/3870" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Incluye L-Glutamina, L-Arginina y NanoFactor®, con una combinación de aminoácidos para uso nutricional diario.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $127.100 
+                <small class="text-muted text-decoration-line-through ms-2">$158.900</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/glutamine-prime---colombia/3870" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 13 -->
-      <div class="col-md-4">
+      <!-- Producto 13 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/renuvo.jpg" class="card-img-top" alt="Renuvo">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/renuvo.jpg" class="card-img-top" alt="Renuvo" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -385,19 +509,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Renuvo</h5>
-            <p class="card-text">Fórmula exclusiva 4Life Transfer Factor con zinc, vitamina D y extractos naturales que fortalecen defensas y revitalizan el cuerpo.</p>
-            <p class="fw-bold text-primary">$197.600 <small class="text-muted"><del>$247.000</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-renuvo-each/882#details" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Fórmula exclusiva 4Life Transfer Factor con zinc, vitamina D y extractos naturales que fortalecen defensas y revitalizan el cuerpo.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $197.600 
+                <small class="text-muted text-decoration-line-through ms-2">$247.000</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-renuvo-each/882#details" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 14 -->
-      <div class="col-md-4">
+      <!-- Producto 14 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/nutrastart.jpg" class="card-img-top" alt="NutraStart">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/nutrastart.jpg" class="card-img-top" alt="NutraStart" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -406,19 +539,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">NutraStart</h5>
-            <p class="card-text">Batido en polvo con Tri-Factor®, proteína de soya, vitaminas y sabor a chocolate que aporta 18 g de proteína por porción para una nutrición diaria completa.</p>
-            <p class="fw-bold text-primary">$190.600 <small class="text-muted"><del>$238.300</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/nutrastart-chocolate/49" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Batido en polvo con Tri-Factor®, proteína de soya, vitaminas y sabor a chocolate que aporta 18 g de proteína por porción.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $190.600 
+                <small class="text-muted text-decoration-line-through ms-2">$238.300</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/nutrastart-chocolate/49" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 15 -->
-      <div class="col-md-4">
+      <!-- Producto 15 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/transfer-factor-tri-factor.jpg" class="card-img-top" alt="Transfer Factor Tri-Factor">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/transfer-factor-tri-factor.jpg" class="card-img-top" alt="Transfer Factor Tri-Factor" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -427,19 +569,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Transfer Factor Tri-Factor®</h5>
-            <p class="card-text">Aporta una mezcla de proteínas de calostro y huevo que complementan la dieta y favorecen el bienestar diario.</p>
-            <p class="fw-bold text-primary">$168.200 <small class="text-muted"><del>$210.300</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-tri-factor/95" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Aporta una mezcla de proteínas de calostro y huevo que complementan la dieta y favorecen el bienestar diario.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $168.200 
+                <small class="text-muted text-decoration-line-through ms-2">$210.300</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-tri-factor/95" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 16 -->
-      <div class="col-md-4">
+      <!-- Producto 16 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/transfer-factor-plus-tri-factor.jpg" class="card-img-top" alt="Transfer Factor Plus Tri-Factor">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/transfer-factor-plus-tri-factor.jpg" class="card-img-top" alt="BCV+" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -448,19 +599,28 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">BCV+</h5>
-            <p class="card-text">Contiene vitaminas, minerales, coenzima Q10 y extractos naturales en una fórmula diseñada para complementar la alimentación.</p>
-            <p class="fw-bold text-primary">$215.100 <small class="text-muted"><del>$268.900</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/transfer-factor-bcv/2459#details" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Contiene vitaminas, minerales, coenzima Q10 y extractos naturales en una fórmula diseñada para complementar la alimentación.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $215.100 
+                <small class="text-muted text-decoration-line-through ms-2">$268.900</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/transfer-factor-bcv/2459#details" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- 17 -->
-      <div class="col-md-4">
+      <!-- Producto 17 -->
+      <div class="col-sm-6 col-lg-4">
         <div class="card h-100 shadow-sm product-card">
-          <img src="img/targeted-transfer-factor.jpg" class="card-img-top" alt="Targeted Transfer Factor">
-          <div class="card-body text-center">
-            <span class="badge bg-danger mb-2">Descuento especial</span>
+          <div class="position-relative">
+            <img src="img/targeted-transfer-factor.jpg" class="card-img-top" alt="Targeted Transfer Factor Oral Spray" loading="lazy">
+            <span class="badge bg-danger position-absolute top-0 start-0 m-3">Descuento especial</span>
+          </div>
+          <div class="card-body d-flex flex-column">
             <div class="stars mb-2">
               <i class="fa-solid fa-star text-warning"></i>
               <i class="fa-solid fa-star text-warning"></i>
@@ -469,9 +629,16 @@
               <i class="fa-solid fa-star text-warning"></i>
             </div>
             <h5 class="card-title">Targeted Transfer Factor: Oral Spray</h5>
-            <p class="card-text">Refresca y alivia tu garganta con este spray natural elaborado con aloe vera, malvavisco y menta para una sensación fresca e hidratante.</p>
-            <p class="fw-bold text-primary">$102.200 <small class="text-muted"><del>$127.800</del></small></p>
-            <a href="https://colombia.4life.com/12757711/product/oral-spray/2460" target="_blank" class="btn btn-primary">Comprar</a>
+            <p class="card-text flex-grow-1">Refresca y alivia tu garganta con este spray natural elaborado con aloe vera, malvavisco y menta.</p>
+            <div class="mt-auto">
+              <p class="fw-bold text-primary mb-3">
+                $102.200 
+                <small class="text-muted text-decoration-line-through ms-2">$127.800</small>
+              </p>
+              <a href="https://colombia.4life.com/12757711/product/oral-spray/2460" target="_blank" class="btn btn-primary w-100">
+                <i class="fa-solid fa-cart-shopping me-2"></i>Comprar
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -486,24 +653,25 @@
     <h2 class="text-center mb-5 section-title">Resultados de búsqueda</h2>
     <div id="resultsGrid" class="row g-4"></div>
     <div class="text-center mt-4">
-      <a href="#productos" class="btn btn-secondary" id="backToProducts">Volver a todos los productos</a>
+      <button class="btn btn-secondary" id="backToProducts">Volver a todos los productos</button>
     </div>
   </div>
 </section>
 
+<!-- Testimonios Section -->
 <section id="testimonios" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-5 section-title">Testimonios</h2>
-    <div id="testimoniosCarousel" class="carousel slide">
-      <ol class="carousel-indicators">
-        <li data-bs-target="#testimoniosCarousel" data-bs-slide-to="0" class="active"></li>
-        <li data-bs-target="#testimoniosCarousel" data-bs-slide-to="1"></li>
-        <li data-bs-target="#testimoniosCarousel" data-bs-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner text-center">
+    <div id="testimoniosCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#testimoniosCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Video 1"></button>
+        <button type="button" data-bs-target="#testimoniosCarousel" data-bs-slide-to="1" aria-label="Video 2"></button>
+        <button type="button" data-bs-target="#testimoniosCarousel" data-bs-slide-to="2" aria-label="Video 3"></button>
+      </div>
+      <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="ratio ratio-16x9">
-            <video controls preload="metadata" class="w-100 h-100">
+            <video controls preload="metadata">
               <source src="video 2.mp4" type="video/mp4">
               Tu navegador no soporta reproducir este video.
             </video>
@@ -511,7 +679,7 @@
         </div>
         <div class="carousel-item">
           <div class="ratio ratio-16x9">
-            <video controls preload="metadata" class="w-100 h-100">
+            <video controls preload="metadata">
               <source src="video 3.mp4" type="video/mp4">
               Tu navegador no soporta reproducir este video.
             </video>
@@ -519,7 +687,7 @@
         </div>
         <div class="carousel-item">
           <div class="ratio ratio-16x9">
-            <video controls preload="metadata" class="w-100 h-100">
+            <video controls preload="metadata">
               <source src="video 4.mp4" type="video/mp4">
               Tu navegador no soporta reproducir este video.
             </video>
@@ -527,225 +695,242 @@
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
       </button>
       <button class="carousel-control-next" type="button" data-bs-target="#testimoniosCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
       </button>
     </div>
-    <div class="text-center mt-4">
-      <a href="#productos" class="btn btn-secondary">Volver a productos</a>
-    </div>
   </div>
 </section>
 
+<!-- Nosotros Section -->
 <section id="nosotros" class="py-5">
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-6">
-        <h2 class="section-title">¿Quiénes somos?</h2>
-        <p>
+    <div class="row align-items-center g-4">
+      <div class="col-lg-6">
+        <h2 class="section-title mb-4">¿Quiénes somos?</h2>
+        <p class="lead">
           En 4Life nos esforzamos por elaborar productos que superan los más altos estándares de calidad en la industria.
-          Como distribuidor independiente, te ofrezco acceso a suplementos que puedes incorporar con total confianza en tu día a día.
         </p>
         <p>
+          Como distribuidor independiente, te ofrezco acceso a suplementos que puedes incorporar con total confianza en tu día a día.
           Mi misión es ayudarte a apoyar el bienestar de tu familia con productos de calidad y formulaciones desarrolladas por fabricantes con investigación.
         </p>
-        <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">Ver video</a>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
+          <i class="fa-solid fa-play me-2"></i>Ver video
+        </button>
       </div>
-      <div class="col-md-6">
-        <img src="img/nosotros.jpg" class="img-fluid rounded" alt="Nosotros">
+      <div class="col-lg-6">
+        <img src="img/nosotros.jpg" class="img-fluid rounded shadow" alt="Sobre nosotros">
       </div>
-    </div>
-    <div class="text-center mt-4">
-      <a href="#productos" class="btn btn-secondary">Volver a productos</a>
     </div>
   </div>
 </section>
 
-<section id="faq" class="py-5">
+<!-- FAQ Section -->
+<section id="faq" class="py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-5 section-title">Preguntas Frecuentes</h2>
-    <div class="accordion" id="faqAccordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
-            ¿Qué es 4Life?
-          </button>
-        </h2>
-        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            4Life es una empresa reconocida en suplementos naturales, especializada en productos con Transfer Factor que se comercializan como apoyo a la respuesta inmunológica.
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="accordion" id="faqAccordion">
+          
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">
+                ¿Qué es 4Life?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                4Life es una empresa reconocida en suplementos naturales, especializada en productos con Transfer Factor que se comercializan como apoyo a la respuesta inmunológica.
+              </div>
+            </div>
           </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                ¿Los productos están respaldados científicamente?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                4Life invierte en investigación: la familia Transfer Factor cuenta con estudios, publicaciones y patentes que describen su modo de acción. Los productos combinan ingredientes (colostrum, huevo, vitaminas, minerales y mezclas botánicas) y se producen bajo estándares de calidad. Ten en cuenta que las declaraciones sobre salud pueden variar por país y los suplementos no sustituyen la atención médica.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                ¿Cómo comprar y garantías?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Puedes comprar a través del <a href="https://colombia.4life.com/12757711/shop/all" target="_blank">sitio oficial</a> o solicitarnos el pedido por WhatsApp. 4Life ofrece una garantía de satisfacción (generalmente 30 días) y políticas de envío y devolución; los detalles dependen del país y la tienda oficial.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                ¿Son seguros para niños y embarazadas?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                Algunos productos tienen formulaciones para niños (por ejemplo, Transfer Factor Chewable). Sin embargo, mujeres embarazadas o lactando y personas con condiciones médicas deben consultar a un profesional de la salud antes de consumir cualquier suplemento.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                ¿Dónde puedo encontrar estudios y patentes?
+              </button>
+            </h2>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                4Life publica referencias a estudios, publicaciones y sus patentes en su sitio corporativo (sección "Studies and Publications" y "Global Patents"). Enlaces oficiales están disponibles en el sitio global y el sitio local de 4Life.
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-            ¿Los productos están respaldados científicamente?
-          </button>
-        </h2>
-        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            4Life invierte en investigación: la familia Transfer Factor cuenta con estudios, publicaciones y patentes que describen su modo de acción. Los productos combinan ingredientes (colostrum, huevo, vitaminas, minerales y mezclas botánicas) y se producen bajo estándares de calidad. Ten en cuenta que las declaraciones sobre salud pueden variar por país y los suplementos no sustituyen la atención médica.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-            ¿Cómo comprar y garantías?
-          </button>
-        </h2>
-        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Puedes comprar a través del <a href="https://colombia.4life.com/12757711/shop/all" target="_blank">sitio oficial</a> o solicitarnos el pedido por WhatsApp. 4Life ofrece una garantía de satisfacción (generalmente 30 días) y políticas de envío y devolución; los detalles dependen del país y la tienda oficial.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-            ¿Son seguros para niños y embarazadas?
-          </button>
-        </h2>
-        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            Algunos productos tienen formulaciones para niños (por ejemplo, Transfer Factor Chewable). Sin embargo, mujeres embarazadas o lactando y personas con condiciones médicas deben consultar a un profesional de la salud antes de consumir cualquier suplemento.
-          </div>
-        </div>
-      </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
-            ¿Dónde puedo encontrar estudios y patentes?
-          </button>
-        </h2>
-        <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-          <div class="accordion-body">
-            4Life publica referencias a estudios, publicaciones y sus patentes en su sitio corporativo (sección "Studies and Publications" y "Global Patents"). Enlaces oficiales están disponibles en el sitio global y el sitio local de 4Life.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="text-center mt-4">
-      <a href="#productos" class="btn btn-secondary">Volver a productos</a>
     </div>
   </div>
 </section>
 
-<section id="compra-segura" class="py-5 bg-light">
+<!-- Compra Segura Section -->
+<section id="compra-segura" class="py-5">
   <div class="container">
-    <h2 class="text-center mb-4 section-title">Compra segura y envíos</h2>
+    <h2 class="text-center mb-5 section-title">Compra segura y envíos</h2>
     <div class="row g-4">
       <div class="col-md-6">
-        <div class="card h-100">
+        <div class="card h-100 shadow-sm">
           <div class="card-body">
-            <h5 class="card-title">¿Por qué redirigimos?</h5>
-            <p class="card-text">Al pulsar "Comprar" te llevamos a la tienda oficial de 4Life para completar el pedido. Esto permite que la plataforma oficial procese el pago, emita la factura y gestione el despacho de forma segura. Además, al usar mi enlace como distribuidora independiente se aplican descuentos exclusivos que sólo se activan desde ese enlace en el checkout oficial.</p>
+            <h5 class="card-title">
+              <i class="fa-solid fa-shield-halved text-primary me-2"></i>
+              ¿Por qué redirigimos?
+            </h5>
+            <p class="card-text">
+              Al pulsar "Comprar" te llevamos a la tienda oficial de 4Life para completar el pedido. Esto permite que la plataforma oficial procese el pago, emita la factura y gestione el despacho de forma segura. Además, al usar mi enlace como distribuidora independiente se aplican descuentos exclusivos que sólo se activan desde ese enlace en el checkout oficial.
+            </p>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="card h-100">
+        <div class="card h-100 shadow-sm">
           <div class="card-body">
-            <h5 class="card-title">Envíos, seguimiento y garantías</h5>
-            <ul>
+            <h5 class="card-title">
+              <i class="fa-solid fa-truck text-primary me-2"></i>
+              Envíos, seguimiento y garantías
+            </h5>
+            <ul class="mb-3">
               <li>El procesamiento y despacho lo realiza la tienda oficial; recibirás un número de guía y la información de la transportadora para seguimiento.</li>
               <li>Los plazos y costos de envío dependen de la región, disponibilidad y promociones vigentes; se muestran en el checkout antes de confirmar tu pago.</li>
               <li>4Life suele ofrecer una garantía de satisfacción (por ejemplo, 30 días) y políticas de devolución gestionadas por la tienda oficial; en caso de necesidad te asesoro para tramitarla.</li>
             </ul>
-            <p class="small text-muted mt-2">Consulta las condiciones oficiales: <a href="https://colombia.4life.com/12757711/page/23/satisfaction" target="_blank">Política de satisfacción y devoluciones (4Life Colombia)</a></p>
+            <a href="https://colombia.4life.com/12757711/page/23/satisfaction" target="_blank" class="btn btn-link btn-sm p-0">
+              <i class="fa-solid fa-external-link-alt me-1"></i>
+              Ver política oficial
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div class="text-center mt-4">
-      <a href="#productos" class="btn btn-secondary">Volver a productos</a>
-    </div>
   </div>
 </section>
 
+<!-- Contacto Section -->
 <section id="contacto" class="py-5 bg-light">
   <div class="container">
-    <h2 class="text-center mb-4 section-title">Contáctanos</h2>
+    <h2 class="text-center mb-5 section-title">Contáctanos</h2>
     <div class="row justify-content-center">
-      <div class="col-md-6 text-center">
-        <p class="lead mb-4">Puedes escribir tus dudas con nosotros a este correo electrónico:</p>
-        <p class="h4 mb-4">
-          <a href="mailto:4lifeventas8@gmail.com" class="text-decoration-none">
+      <div class="col-lg-6 text-center">
+        <p class="lead mb-4">¿Tienes dudas? Escríbenos:</p>
+        <div class="mb-4">
+          <a href="mailto:4lifeventas8@gmail.com" class="btn btn-outline-primary btn-lg">
             <i class="fa-regular fa-envelope me-2"></i>4lifeventas8@gmail.com
           </a>
-        </p>
-        <div class="mt-4">
-          <a href="https://wa.me/573208501537?text=Hola!!%20Quiero%20informaci%C3%B3n%20de%20productos%204Life" target="_blank" class="btn btn-success mb-3" aria-label="Escríbenos por WhatsApp">
-            <i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp
-          </a>
         </div>
-        <div class="mt-3">
-          <a href="#productos" class="btn btn-secondary">Volver a productos</a>
+        <div>
+          <a href="https://wa.me/573208501537?text=Hola!!%20Quiero%20información%20de%20productos%204Life" target="_blank" class="btn btn-success btn-lg">
+            <i class="fa-brands fa-whatsapp me-2"></i>Escríbenos por WhatsApp
+          </a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Footer -->
 <footer class="bg-dark text-white py-5">
   <div class="container">
-    <div class="row">
+    <div class="row g-4">
       <div class="col-md-4">
-        <h5>4Life</h5>
-  <p>Apoya tu bienestar con productos naturales formulados y comercializados por fabricantes con programas de investigación.</p>
+        <h5 class="mb-3">4Life</h5>
+        <p class="small">Apoya tu bienestar con productos naturales formulados y comercializados por fabricantes con programas de investigación.</p>
       </div>
       <div class="col-md-4">
-        <h5>Enlaces</h5>
+        <h5 class="mb-3">Enlaces</h5>
         <ul class="list-unstyled">
-          <li><a href="privacy.html" class="text-white">Política de Privacidad</a></li>
-          <li><a href="terms.html" class="text-white">Términos y Condiciones</a></li>
+          <li class="mb-2">
+            <a href="privacy.html" class="text-white-50 text-decoration-none">Política de Privacidad</a>
+          </li>
+          <li class="mb-2">
+            <a href="terms.html" class="text-white-50 text-decoration-none">Términos y Condiciones</a>
+          </li>
         </ul>
       </div>
       <div class="col-md-4">
-        <h5>Síguenos</h5>
-        <a href="https://www.instagram.com/servicio_con_amor_s?igsh=MW1pZGZtcm51YjBkNA==" class="text-white me-3" aria-label="Instagram" target="_blank">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="currentColor"/>
-          </svg>
-        </a>
-        <a href="https://www.tiktok.com/@servicio_con_amor_s?is_from_webapp=1&sender_device=pc" class="text-white" aria-label="TikTok" target="_blank">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="currentColor"/>
-          </svg>
-        </a>
+        <h5 class="mb-3">Síguenos</h5>
+        <div class="d-flex gap-3">
+          <a href="https://www.instagram.com/servicio_con_amor_s?igsh=MW1pZGZtcm51YjBkNA==" class="text-white-50" aria-label="Instagram" target="_blank">
+            <i class="fa-brands fa-instagram fa-2x"></i>
+          </a>
+          <a href="https://www.tiktok.com/@servicio_con_amor_s?is_from_webapp=1&sender_device=pc" class="text-white-50" aria-label="TikTok" target="_blank">
+            <i class="fa-brands fa-tiktok fa-2x"></i>
+          </a>
+        </div>
       </div>
     </div>
-    <hr>
-    <div class="text-center">
+    <hr class="my-4 bg-white opacity-25">
+    <div class="text-center small">
       <p class="mb-0">&copy; 2025 4Life Distribuidor Independiente. Todos los derechos reservados.</p>
     </div>
   </div>
 </footer>
 
-<!-- BOTÓN WHATSAPP -->
-<a href="https://wa.me/573208501537?text=Hola!!%20Quiero%20informaci%C3%B3n%20de%20productos%204Life" target="_blank" class="whatsapp-float" aria-label="Chatea con nosotros por WhatsApp">
+<!-- Botón WhatsApp flotante -->
+<a href="https://wa.me/573208501537?text=Hola!!%20Quiero%20información%20de%20productos%204Life" target="_blank" class="whatsapp-float" aria-label="Chatea con nosotros por WhatsApp">
   <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<!-- BOTÓN VOLVER ARRIBA -->
+<!-- Botón volver arriba -->
 <button id="btnTop" class="btn btn-primary rounded-circle" aria-label="Volver arriba">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
 <!-- Modal de video -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="videoModalLabel">Video de presentación</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
       </div>
       <div class="modal-body">
-        <div id="videoContainer">
-          <video controls preload="metadata" class="w-100">
+        <div class="ratio ratio-16x9">
+          <video controls preload="metadata" id="modalVideo">
             <source src="video 1.mp4" type="video/mp4">
             Tu navegador no soporta reproducir este video.
           </video>
@@ -765,51 +950,35 @@
       </div>
       <div class="modal-body">
         <p>Selecciona las categorías de cookies que permites usar en este sitio.</p>
-        <div class="form-check mb-2">
-          <input class="form-check-input" type="checkbox" value="" id="cookieNecessary" checked disabled>
-          <label class="form-check-label" for="cookieNecessary">Necesarias (siempre activas)</label>
+        
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="cookieNecessary" checked disabled>
+          <label class="form-check-label" for="cookieNecessary">
+            <strong>Necesarias</strong> <span class="text-muted small">(siempre activas)</span>
+          </label>
         </div>
-        <div class="form-check mb-2">
+        
+        <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="cookiePreferences">
           <label class="form-check-label" for="cookiePreferences">Preferencias</label>
         </div>
-        <div class="form-check mb-2">
+        
+        <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="cookieAnalytics">
           <label class="form-check-label" for="cookieAnalytics">Analíticas</label>
         </div>
-        <div class="form-check mb-2">
+        
+        <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="cookieMarketing">
           <label class="form-check-label" for="cookieMarketing">Marketing</label>
         </div>
-        <div class="form-check mb-2">
+        
+        <div class="form-check mb-3">
           <input class="form-check-input" type="checkbox" id="cookieMedia">
-          <label class="form-check-label" for="cookieMedia">Medios embebidos (YouTube)</label>
+          <label class="form-check-label" for="cookieMedia">Medios embebidos</label>
         </div>
-        <p class="small text-muted mt-2">Puedes leer más en nuestra <a href="privacy.html">Política de Privacidad</a>.</p>
-        <hr>
-        <div class="accordion" id="cookieInfoAccordion">
-          <div class="accordion-item">
-            <h2 class="accordion-header" id="cookieInfoHeading">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cookieInfoCollapse" aria-expanded="false">
-                Ver detalles de cookies y cómo revocar el consentimiento
-              </button>
-            </h2>
-            <div id="cookieInfoCollapse" class="accordion-collapse collapse" data-bs-parent="#cookieInfoAccordion">
-              <div class="accordion-body small">
-                <p><strong>Cookies propias / localStorage:</strong> la web guarda claves como <code>cookies_accepted</code>, <code>cookies_media</code>, <code>cookies_analytics</code> para recordar tu elección.</p>
-                <p><strong>Vídeos embebidos (YouTube):</strong> solo cargamos el iframe si aceptas 'Medios' o pulsas reproducir.</p>
-                <p><strong>Formularios:</strong> formsubmit.co procesa el envío del formulario y puede aplicar sus propios mecanismos; revisa su política.</p>
-                <p><strong>Revocar consentimiento:</strong> para retirar tus elecciones puedes borrar las claves del sitio en el navegador (DevTools &gt; Console):</p>
-                <pre><code>localStorage.removeItem('cookies_analytics');
-localStorage.removeItem('cookies_media');
-localStorage.removeItem('cookies_marketing');
-localStorage.removeItem('cookies_preferences');
-localStorage.removeItem('cookies_accepted');</code></pre>
-                <p>Luego recarga la página y el banner volverá a mostrarse.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        
+        <p class="small text-muted">Puedes leer más en nuestra <a href="privacy.html">Política de Privacidad</a>.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -819,7 +988,7 @@ localStorage.removeItem('cookies_accepted');</code></pre>
   </div>
 </div>
 
-<!-- JS -->
+<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="js/script.js" defer></script>
 </body>

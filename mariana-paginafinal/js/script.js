@@ -1,27 +1,75 @@
-// Scroll suave entre secciones
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const destino = document.querySelector(this.getAttribute('href'));
-    if (destino) {
-      e.preventDefault();
-      destino.scrollIntoView({ behavior: 'smooth' });
+ (function () {
+  'use strict';
+
+  // Helpers
+  const $ = (sel, ctx = document) => ctx.querySelector(sel);
+  const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
+
+  // Smooth scroll for internal anchors
+  $$("a[href^='#']").forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const href = anchor.getAttribute('href');
+      const destino = href && href.startsWith('#') ? $(href) : null;
+      if (destino) {
+        e.preventDefault();
+        destino.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Elements reused by scroll handler
+  const btnTop = document.getElementById('btnTop');
+  const progressBar = document.getElementById('progressBar');
+  const navbar = document.querySelector('.navbar');
+  const sections = Array.from(document.querySelectorAll('section[id]'));
+
+  // Back to top button (click only). Visibility is handled by unified scroll handler below.
+  if (btnTop) {
+    btnTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // Unified, performant scroll handler (rAF + passive listener)
+  let _ticking = false;
+  function _onScroll() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (btnTop) btnTop.classList.toggle('show', scrollY > 400);
+    if (navbar) navbar.classList.toggle('scrolled', scrollY > 50);
+    if (progressBar) {
+      const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const pct = docHeight > 0 ? (scrollY / docHeight) * 100 : 0;
+      progressBar.style.width = pct + '%';
     }
-  });
-});
+    // Highlight current section's nav link (sync with progress bar)
+    try {
+      const offset = 80; // match header height / scroll offset
+      let currentId = null;
+      for (const sec of sections) {
+        const top = sec.offsetTop - offset;
+        const bottom = top + sec.offsetHeight;
+        if (scrollY >= top && scrollY < bottom) {
+          currentId = sec.id;
+          break;
+        }
+      }
+      if (currentId) {
+        document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-link[href="#${currentId}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    } catch (e) { /* no-op */ }
+    _ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!_ticking) {
+      window.requestAnimationFrame(_onScroll);
+      _ticking = true;
+    }
+  }, { passive: true });
 
-// Botón "Volver arriba"
-const btnTop = document.getElementById("btnTop");
-if (btnTop) {
-  window.addEventListener("scroll", () => {
-    btnTop.classList.toggle("show", window.scrollY > 400);
-  });
-  btnTop.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
-}
-
-// Animaciones al hacer scroll (productos, nosotros)
-const animatedItems = document.querySelectorAll('.product-card, #nosotros img');
+  // Animaciones al hacer scroll (productos, nosotros)
+  const animatedItems = document.querySelectorAll('.product-card, #nosotros img');
 if ('IntersectionObserver' in window) {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -179,6 +227,21 @@ if (searchInput) {
       filterProductsAdvanced();
     }
   });
+
+  // Debounce helper (local, small and safe)
+  function debounce(fn, wait = 300) {
+    let t;
+    return function (...args) {
+      clearTimeout(t);
+      t = setTimeout(() => fn.apply(this, args), wait);
+    };
+  }
+
+  // Live search (debounced) - only trigger modal when term >= 2 chars
+  const debouncedFilter = debounce(() => {
+    if (searchInput.value.trim().length >= 2) filterProductsAdvanced();
+  }, 300);
+  searchInput.addEventListener('input', debouncedFilter);
 }
 if (searchBtn) {
   searchBtn.addEventListener('click', filterProductsAdvanced);
@@ -199,14 +262,7 @@ modal.querySelector('#backToAllProducts').addEventListener('click', () => {
   window.scrollTo({ top: productosSection.offsetTop, behavior: 'smooth' });
 });
 
-// Barra de progreso de scroll
-window.addEventListener('scroll', () => {
-  const scrollTop = window.scrollY;
-  const docHeight = document.body.scrollHeight - window.innerHeight;
-  const scrollPercent = (scrollTop / docHeight) * 100;
-  const progressBar = document.getElementById('progressBar');
-  if (progressBar) progressBar.style.width = scrollPercent + '%';
-});
+// Barra de progreso: ahora manejada por el handler unificado (requestAnimationFrame)
 
 // Inicializar ScrollSpy manualmente para asegurar que el enlace activo se actualice correctamente
 window.addEventListener('load', () => {
@@ -380,6 +436,49 @@ document.addEventListener('keydown', (e) => {
   const carouselEl = document.getElementById('testimoniosCarousel');
   if (!carouselEl) return;
 
+  // Lazy-load videos: don't preload until the slide is active
+  const carouselVideos = carouselEl.querySelectorAll('video');
+  carouselVideos.forEach(v => {
+    try { v.preload = 'none'; } catch (e) { /* ignore */ }
+  });
+
+  // Add accessible play overlay for each video to improve UX (keyboard + click)
+  const carouselItems = carouselEl.querySelectorAll('.carousel-item');
+  carouselItems.forEach(item => {
+    const video = item.querySelector('video');
+    if (!video) return;
+    // ensure wrapper is positioned for absolute overlay
+    const wrapper = video.closest('.ratio') || video.parentElement;
+    if (wrapper) wrapper.style.position = wrapper.style.position || 'relative';
+
+    const overlay = document.createElement('button');
+    overlay.type = 'button';
+    overlay.className = 'video-overlay';
+    overlay.setAttribute('aria-label', 'Reproducir video');
+    overlay.tabIndex = 0;
+    overlay.innerHTML = '<i class="fa-solid fa-circle-play fa-3x" aria-hidden="true"></i>';
+
+    // click or keyboard -> load and play
+    const playHandler = (ev) => {
+      try { if (video.preload !== 'auto') video.load(); } catch (e) { /* ignore */ }
+      try { video.play(); } catch (e) { /* ignore */ }
+      overlay.style.display = 'none';
+      ev && ev.preventDefault();
+    };
+
+    overlay.addEventListener('click', playHandler);
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') playHandler(e);
+    });
+
+    // hide overlay when video plays, show when paused
+    video.addEventListener('play', () => overlay.style.display = 'none');
+    video.addEventListener('pause', () => overlay.style.display = 'flex');
+
+    // append overlay
+    wrapper.appendChild(overlay);
+  });
+
   // Al iniciar el cambio de slide, pausamos cualquier <video> dentro del slide que está activo (el que se va)
   carouselEl.addEventListener('slide.bs.carousel', function () {
     const activeItem = carouselEl.querySelector('.carousel-item.active');
@@ -397,7 +496,12 @@ document.addEventListener('keydown', (e) => {
       const item = v.closest('.carousel-item');
       if (!item.classList.contains('active')) {
         try { v.pause(); } catch (err) { /* ignore */ }
+      } else {
+        // load metadata for active video so the user can play without delay
+        try { v.load(); } catch (err) { /* ignore */ }
       }
     });
   });
+})();
+
 })();
